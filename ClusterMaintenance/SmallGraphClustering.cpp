@@ -226,8 +226,8 @@ SmallGraphClustering::SmallGraphClustering(ofstream& logfile)
 		}
 	}
 	smallclusterend = clock();
-	logfile << "Small graph clustering time(s) (Original): " << (smallclusterend - smallclusterstart) << endl;
-	cout << "Small graph clustering time(s) (Original): " << (smallclusterend - smallclusterstart) << endl;
+	logfile << "Small graph clustering time(ms) (Original): " << (smallclusterend - smallclusterstart) << endl;
+	cout << "Small graph clustering time(ms) (Original): " << (smallclusterend - smallclusterstart) << endl;
 
 	if (is_fctAsFeatureVactor) {
 		clock_t smallclusterstart2, smallclusterend2;
@@ -259,8 +259,8 @@ SmallGraphClustering::SmallGraphClustering(ofstream& logfile)
 			logfile << "No need to maintain..." << endl;
 		}
 		smallclusterend2 = clock();
-		logfile << "Small graph clustering time(s) (Maintenance): " << (smallclusterend2 - smallclusterstart2) << endl;
-		cout << "Small graph clustering time(s) (Maintenance): " << (smallclusterend2 - smallclusterstart2) << endl;
+		logfile << "Small graph clustering time(ms) (Maintenance): " << (smallclusterend2 - smallclusterstart2) << endl;
+		cout << "Small graph clustering time(ms) (Maintenance): " << (smallclusterend2 - smallclusterstart2) << endl;
 	}
 
 }
