@@ -4,7 +4,7 @@ This is our implementation for the paper:
 
 MIDAS: Towards Efficient and Effective Maintenance of Canned Patterns in Visual Graph Query Interfaces
 
-The project consists of Catapult++ and Midas. Catapult++ is  implemented with C++ (C++ 14) and  Midas is implemented with Java (JDK 1.8). 
+The project consists of ClusterMaintenance and Midas. ClusterMaintenance is  implemented with C++ (C++ 14) and  Midas is implemented with Java (JDK 1.8). 
 
 
 # Environments
@@ -30,11 +30,11 @@ Boost Graph Library (https://www.boost.org/doc/libs/1_74_0/libs/graph/doc/)
 
 # Example to run the codes
 
-There is an example to run the codes. Suppose the original database contains 25000 graphs in AIDS antiviral dataset, if 5000 graphs are added into the database, Catapult++ should be performed to maintain the  clusters generated from  the original database  and Midas is then to update original patterns based on the updated clusters. 
+There is an example to run the codes. Suppose the original database contains 25000 graphs in AIDS antiviral dataset, if 5000 graphs are added into the database, ClusterMaintenance should be performed to maintain the  clusters generated from  the original database  and Midas is then to update original patterns based on the updated clusters. 
 
-1. Run Catapult++: 
+1. Run ClusterMaintenance: 
 
-Step 1:  Import Catapult++ project into Visual Studio workspace.  
+Step 1:  Import ClusterMaintenance project into Visual Studio workspace.  
 
 Step 2: Download Boost Graph Library (BGL) from https://www.boost.org/doc/libs/1_74_0/libs/graph/doc/ and compile BGL. Then configure it for Visual Studio (see https://www.youtube.com/watch?v=CH_YZ2bePPM ).
 
