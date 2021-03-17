@@ -179,8 +179,7 @@ public class MIDASMain {
 		MIDASMain gen = new MIDASMain();
 		gen.setDataBaseName("AIDS40k");
 		gen.setDbName("AIDS");
-		gen.setInitialPatternName("patterns/Revision_25kiCatapult/GUIPatterns.txt");
-		//gen.setUpdateClusterName("Clusters/updatecluster25K+5Kepislon0.1.txt");
+		gen.setInitialPatternName("patterns/GUIPatterns.txt");
 		gen.setUpdateClusterName("Clusters/updatecluster25K+15K.txt");
 		boolean USEGED = true;
 		boolean USEINDEX = true;
@@ -204,10 +203,9 @@ public class MIDASMain {
 		PatternResult existingpr = gen.calculateUpdatedPatternScore(existingpatterns,  patternIdList, Updated_datagraphs,TrieIndex);
 		TrieIndex.update(existingpr, gen.getKappa(), graphIdList);
 		gen.trietree  = TrieIndex;
-		Long startTime = System.currentTimeMillis();
 		
 		///// 3. generate updated patterns
-        gen.UpdatedgeneratePatterns2(gen.trietree);
+                gen.UpdatedgeneratePatterns2(gen.trietree);
 		ArrayList<JGraphtClosureGraph> newpatterns = new ArrayList<JGraphtClosureGraph>();
 		for (int i = 0; i < GUIPatterns2.size(); i++) {
 			JGraphtClosureGraph p = new JGraphtClosureGraph(GUIPatterns2.get(i));
@@ -221,7 +219,6 @@ public class MIDASMain {
 		//PatternResult newpr = gen.calculatePatternScore(newpatterns, FCT_Name_Updated, TG_Name_Updated, FEG_Name_Updated, IFEG_Name_Updated, TP_Name_Updated, FEP_Name_Updated, IFEP_Name_Updated,
 		//		newpatternIdList, Updated_datagraphs);
 		PatternResult newpr = gen.calculateUpdatedPatternScore(newpatterns, newpatternIdList, Updated_datagraphs,TrieIndex);
-		Long endTime1 = System.currentTimeMillis();	
 		///// 4. pattern swapping
 		ArrayList<JGraphtClosureGraph> UpdatePatterns = gen.MultiScanSwap(existingpatterns, existingpr, newpatterns,
 				newpr);
@@ -232,12 +229,7 @@ public class MIDASMain {
 		String pathToSaveImage = gen.PM_resetThumbnailFolder();
 		gen.PM_generateThumbnails(pathToSaveImage, UpPatterns, gen.getDbName());
 		gen.PM_loadThumbnails(pathToSaveImage);
-
 		gen.PM_savePatternsToFile(pathToSaveImage, UpPatterns);
-
-		Long endTime2 = System.currentTimeMillis();
-		
-		//System.out.println("Time 1: " + (endTime1 - startTime) + ", Time 2:" +  (endTime2 - endTime1) );
 		System.out.println("The generated patterns are in \\patterns\\thumbnails" );
 	}
 	
