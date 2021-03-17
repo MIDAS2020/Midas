@@ -36,9 +36,9 @@ public class Trie {
 		for (int i = 0; i < existingpr.getSubgraphcoverage().size(); i++) {
 			ExistedCoveredGraphIds.add(existingpr.getCoveredgraphIDs().get(i));
 		}
-		System.out.println(" existingpr.getSubgraphcoverage().size(): "+ existingpr.getSubgraphcoverage().size());
-		System.out.println("ExistedCoveredGraphIds.size(): "+ ExistedCoveredGraphIds.size());
-		System.out.println("ExistedCoveredGraphIds: "+ ExistedCoveredGraphIds.toString());
+		//System.out.println(" existingpr.getSubgraphcoverage().size(): "+ existingpr.getSubgraphcoverage().size());
+		//System.out.println("ExistedCoveredGraphIds.size(): "+ ExistedCoveredGraphIds.size());
+		//System.out.println("ExistedCoveredGraphIds: "+ ExistedCoveredGraphIds.toString());
 		
 		///// 1. get minimum loss score 
 		double  minimumLossScore = 100000;
@@ -53,19 +53,19 @@ public class Trie {
 					coveredids.add(ids.get(k));
 			}
 			ArrayList<Integer> existedids = ExistedCoveredGraphIds.get(i);
-			System.out.println("existedids: " + existedids.toString());
-			System.out.println("coveredids: " + coveredids.toString());
+			//System.out.println("existedids: " + existedids.toString());
+			//System.out.println("coveredids: " + coveredids.toString());
 			double tempcount = 0;
 			for(int k=0;k<existedids.size();k++) {
 			    if(coveredids.indexOf(existedids.get(k)) == -1) {
 			    	tempcount++;
 			    }
 			}
-			System.out.println("LossScore: " + tempcount);
+			//System.out.println("LossScore: " + tempcount);
 			if(tempcount < minimumLossScore)  minimumLossScore = tempcount;
 		}
 		
-		System.out.println("minimumLossScore: " + minimumLossScore);
+		//System.out.println("minimumLossScore: " + minimumLossScore);
 		
     	////// 2. get benefit score
 		Set<Integer> set = new HashSet<Integer>();
@@ -89,8 +89,8 @@ public class Trie {
 			}else
 				isPromisingEgde.add(true);
 		}
-		System.out.println("Egde: " + this.edges.toString());
-		System.out.println("isPromisingEgde: " + isPromisingEgde.toString());
+		//System.out.println("Egde: " + this.edges.toString());
+		//System.out.println("isPromisingEgde: " + isPromisingEgde.toString());
     }
     
     public void insert(String[] words, ArrayList<Integer>  containedGraphIDs, ArrayList<Integer>  containedTimesofGraph) {

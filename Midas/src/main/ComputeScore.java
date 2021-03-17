@@ -87,13 +87,13 @@ public class ComputeScore {
 		
 	}
 	public void computeUpdatedScore() {
-		System.out.println("Starting to run computeUpdatedScore  " );
+		//System.out.println("Starting to run computeUpdatedScore  " );
 		double maxScore = 0f;
 		double minGED_withBetterScore = 0f;
-		for (int i = 0; i < patternIndex.size(); i++) {
-			System.out.print(patternIndex.get(i)+",");
-		}
-		System.out.println();
+		//for (int i = 0; i < patternIndex.size(); i++) {
+		//	System.out.print(patternIndex.get(i)+",");
+		//}
+		//System.out.println();
 		 
 		ArrayList<Double>  SCOVList = new  ArrayList<Double> ();
 		ArrayList<Double>  GEDList   = new  ArrayList<Double> ();
@@ -118,7 +118,7 @@ public class ComputeScore {
 			if (GUIPatterns.size() == 0)
 				minGED = 1F;
 			else {
-				System.out.println("compare GED_l of i = " + i +" : ");
+				//System.out.println("compare GED_l of i = " + i +" : ");
 				
 				if(trietree.isUSEIGED() == false)
 				   minGED = computeGEDMunkres(minGED_withBetterScore, GUIPatterns, distinctCandidatePatterns.get(patternIndex.get(i)));
@@ -126,7 +126,7 @@ public class ComputeScore {
 				else 
 				   minGED =  computeGEDMunkresWithLowerBoundGED(minGED_withBetterScore, GUIPatterns, distinctCandidatePatterns.get(patternIndex.get(i)));
 				   //minGED =  computeGEDMunkresWithLowerBoundGED2(minGED_withBetterScore, GUIPatterns, distinctCandidatePatterns.get(patternIndex.get(i)));
-				System.out.println();
+				//System.out.println();
 				// minGED=computeGEDMunkresWOGEDFl(minGED_withBetterScore, GUIPatterns,
 				// distinctCandidatePatterns.get(patternIndex.get(i)));
 				// System.out.println("&&&&&&&&&&&&&&& minGED="+minGED);
@@ -155,8 +155,8 @@ public class ComputeScore {
 				}
 			}
 			 lcov = lcov / Updated_datagraphs.size();
-			score = scov * lcov * minGED / cognitiveCost;
-			System.out.println("lcov:" + lcov+ ",scov: " + scov+", minGED:"+ minGED +",cognitiveCost:" + cognitiveCost + ",size:"+ size+",density:"+density );
+			score =  Math.pow(scov, 1)  * Math.pow(lcov, 1)   * Math.pow(minGED, 1)  / Math.pow(cognitiveCost, 1) ;
+			//System.out.println("lcov:" + lcov+ ",scov: " + scov+", minGED:"+ minGED +",cognitiveCost:" + cognitiveCost + ",size:"+ size+",density:"+density );
 			// score=clusterWt+minGED-cognitiveCost;
 			if (score > maxScore)
 				maxScore = score;
@@ -263,15 +263,15 @@ private void readFCT()  {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		     System.out.println("number of fct : " + numberoffct);
+		    // System.out.println("number of fct : " + numberoffct);
 			ExIndex exIndex = new ExIndex(); 
 			exIndex.readGraphSetForSpecificGraphIds(databasename, graphIdList, flag = false);   // flag = false
 			////  read  all graphs In   graphIdList
 		   ArrayList<JGraphtGraph> jGraphTGraphSet = exIndex.getjGraphTGraphSet();
-		    System.out.println("jGraphTGraphSet size : " + jGraphTGraphSet.size()); 
+		    //System.out.println("jGraphTGraphSet size : " + jGraphTGraphSet.size()); 
 		    for(int i=0;i<jGraphTGraphSet.size();i++)  
 		    	System.out.print(jGraphTGraphSet.get(i).getNumNodes() + "," + jGraphTGraphSet.get(i).getEdgeSet().size() + ";");
-		    System.out.println("-----"); 
+		  //  System.out.println("-----"); 
 		    //////  readGraphSetForSpecificGraphIds  can not read one node ..........
 			 //  for(int i =0;i<graphIdList.size();i++) {
 		    for(int i =0;i<jGraphTGraphSet.size();i++) {
@@ -281,7 +281,7 @@ private void readFCT()  {
 				// closureGraph.print();
 				FCT.add(closureGraph);
 		   }
-		    System.out.println("FCT size : " + FCT.size());
+		 //   System.out.println("FCT size : " + FCT.size());
 	}
 	
 	private void  readTP() {
@@ -962,7 +962,7 @@ private void readFCT()  {
 
 		}
 
-		System.out.println(">>>>>>>>>>>>>>   GED=" + GED);
+		//System.out.println(">>>>>>>>>>>>>>   GED=" + GED);
 		return GED;
 	}
 	public  ArrayList<closureEdge>  transJGraphtClosureGraphToclosureEdges(JGraphtClosureGraph JG){
@@ -1528,7 +1528,7 @@ private void readFCT()  {
 				float norm_gedl =  (nodesToAddRemoveRename + edgesToAddRemove + N)*1.0f/(candPatternCGraph_numEdges + candPatternCGraph_numVertices+sPatternCGraph_numEdges+sPatternCGraph_numVertices);
 				GED_fl.add(norm_gedl);
 				
-				System.out.print("GED_fl_" + i + "---" +norm_gedl+","  );
+			//	System.out.print("GED_fl_" + i + "---" +norm_gedl+","  );
 			//	System.out.println("fenmu:" +(candPatternCGraph_numEdges + candPatternCGraph_numVertices+sPatternCGraph_numEdges+sPatternCGraph_numVertices));
 				
 				//// Tighter lower bound of  candPatternCGraph  and  sPatternCGraph
@@ -1559,7 +1559,7 @@ private void readFCT()  {
 				// sPattern.get(c).print();
 				// System.out.println("GED_fl="+(nodesToAddRemoveRename+edgesToAddRemove));
 			}
-			System.out.println();
+			//System.out.println();
 			// ArrayList<Float> sorted_GED_fl=new ArrayList<Float>();
 			// for(int i=0; i<GED_fl.size(); i++)
 
@@ -1588,7 +1588,7 @@ private void readFCT()  {
 				
 				curr_GED =  curr_GED*1.0f/(g1.getNumEdges()+g1.getNumNodes()+g2.getNumEdges()+g2.getNumNodes());
 				// System.out.println("%%%%%%%%%%%% curr_GED="+curr_GED);
-				System.out.println("index:" + index +" ,TrueGED="+curr_GED);
+				//System.out.println("index:" + index +" ,TrueGED="+curr_GED);
 				if (curr_GED < GED) {
 					GED = curr_GED;
 					// if(GED<expectedGdGED)
@@ -1674,7 +1674,7 @@ private void readFCT()  {
 				float norm_gedl =  (nodesToAddRemoveRename + edgesToAddRemove + N)*1.0f/(candPatternCGraph_numEdges + candPatternCGraph_numVertices+sPatternCGraph_numEdges+sPatternCGraph_numVertices);
 				GED_fl.add(norm_gedl);
 				
-				System.out.print("GED_fl_" + i + "---" +norm_gedl+","  );
+				//System.out.print("GED_fl_" + i + "---" +norm_gedl+","  );
 			//	System.out.println("fenmu:" +(candPatternCGraph_numEdges + candPatternCGraph_numVertices+sPatternCGraph_numEdges+sPatternCGraph_numVertices));
 				
 				//// Tighter lower bound of  candPatternCGraph  and  sPatternCGraph
@@ -1705,7 +1705,7 @@ private void readFCT()  {
 				// sPattern.get(c).print();
 				// System.out.println("GED_fl="+(nodesToAddRemoveRename+edgesToAddRemove));
 			}
-			System.out.println();
+			//System.out.println();
 			// ArrayList<Float> sorted_GED_fl=new ArrayList<Float>();
 			// for(int i=0; i<GED_fl.size(); i++)
 
@@ -1734,7 +1734,7 @@ private void readFCT()  {
 				
 				curr_GED =  curr_GED*1.0f/(g1.getNumEdges()+g1.getNumNodes()+g2.getNumEdges()+g2.getNumNodes());
 				// System.out.println("%%%%%%%%%%%% curr_GED="+curr_GED);
-				System.out.println("index:" + index +" ,TrueGED="+curr_GED);
+				//System.out.println("index:" + index +" ,TrueGED="+curr_GED);
 				if (curr_GED < GED) {
 					GED = curr_GED;
 					// if(GED<expectedGdGED)
@@ -1812,8 +1812,8 @@ private void readFCT()  {
 								- sPatternCGraph_closureVertexLabelList.size());
 				int edgesToAddRemove = Math.abs(sPatternCGraph_numEdges - candPatternCGraph_numEdges);
 				GED_fl.add(nodesToAddRemoveRename + edgesToAddRemove);
-                 System.out.print("GED_fl_" + i + "---" +(nodesToAddRemoveRename + edgesToAddRemove)+","  );
-                 System.out.print("GED_fl_" + i + "---" +(nodesToAddRemoveRename + edgesToAddRemove) *1.0/(candPatternCGraph_numEdges+candPatternCGraph_numVertices+ sPatternCGraph_numEdges+sPatternCGraph_numVertices)+","  );
+               //  System.out.print("GED_fl_" + i + "---" +(nodesToAddRemoveRename + edgesToAddRemove)+","  );
+                // System.out.print("GED_fl_" + i + "---" +(nodesToAddRemoveRename + edgesToAddRemove) *1.0/(candPatternCGraph_numEdges+candPatternCGraph_numVertices+ sPatternCGraph_numEdges+sPatternCGraph_numVertices)+","  );
                
 				// print candPattern
 				// System.out.println("PM_computeGED ------------- candPattern: ");
@@ -1824,7 +1824,7 @@ private void readFCT()  {
 				// sPattern.get(c).print();
 				// System.out.println("GED_fl="+(nodesToAddRemoveRename+edgesToAddRemove));
 			}
-			System.out.println();
+			//System.out.println();
 			// ArrayList<Float> sorted_GED_fl=new ArrayList<Float>();
 			// for(int i=0; i<GED_fl.size(); i++)
 
@@ -1849,8 +1849,8 @@ private void readFCT()  {
 				
 				// System.out.println("%%%%%%%%%%%% curr_GED="+curr_GED);
 				
-				System.out.println("index:" + index +" ,TrueGED="+curr_GED);
-				System.out.println("index:" + index +" ,TrueGED="+curr_GED/(g1.getNumEdges()+g1.getNumNodes()+ g2.getNumEdges()+g2.getNumNodes()));
+			//	System.out.println("index:" + index +" ,TrueGED="+curr_GED);
+			//	System.out.println("index:" + index +" ,TrueGED="+curr_GED/(g1.getNumEdges()+g1.getNumNodes()+ g2.getNumEdges()+g2.getNumNodes()));
 				if (curr_GED < GED) {
 					GED = curr_GED;
 					// if(GED<expectedGdGED)
@@ -1885,7 +1885,7 @@ private void readFCT()  {
 	// no GED lower bound heuristics
 	private double computeGEDMunkresWOGEDFl(double expectedGdGED, ArrayList<ArrayList<closureEdge>> GUIPatterns,
 			ArrayList<closureEdge> candPattern) {
-		System.out.println("computeGEDMunkresWOGEDFl");
+		//System.out.println("computeGEDMunkresWOGEDFl");
 		double GED = Double.MAX_VALUE;
 		// ArrayList<Integer> GED_fl=new ArrayList<Integer>();
 
@@ -1989,7 +1989,7 @@ private void readFCT()  {
 						CONTINUE = false;
 				}
 			}
-			System.out.println("************   counter=" + counter + " GUIPatterns size=" + GUIPatterns.size());
+		//	System.out.println("************   counter=" + counter + " GUIPatterns size=" + GUIPatterns.size());
 
 		}
 
@@ -1997,13 +1997,13 @@ private void readFCT()  {
 		return GED;
 	}
 	public void   computeScore_Updated() {
-		System.out.println("Starting to run compute score  " );
+	//	System.out.println("Starting to run compute score  " );
 		double maxScore = 0f;
 		double minGED_withBetterScore = 0f;
-		for (int i = 0; i < patternIndex.size(); i++) {
-			System.out.print(patternIndex.get(i)+",");
-		}
-		System.out.println();
+	//	for (int i = 0; i < patternIndex.size(); i++) {
+	//		System.out.print(patternIndex.get(i)+",");
+	//	}
+	//	System.out.println();
 		 
 		ArrayList<Double>  SCOVList = new  ArrayList<Double> ();
 		ArrayList<Double>  GEDList   = new  ArrayList<Double> ();
@@ -2027,12 +2027,12 @@ private void readFCT()  {
 			if (GUIPatterns.size() == 0)
 				minGED = 1F;
 			else {
-				System.out.println("compare GED_l of i = " + i +" : ");
+			//	System.out.println("compare GED_l of i = " + i +" : ");
 			
 				//minGED = computeGEDMunkres(minGED_withBetterScore, GUIPatterns, distinctCandidatePatterns.get(patternIndex.get(i)));
 				
 				minGED =  computeGEDMunkresWithLowerBoundGED2(minGED_withBetterScore, GUIPatterns, distinctCandidatePatterns.get(patternIndex.get(i)));
-				System.out.println();
+			//	System.out.println();
 				
 				// minGED=computeGEDMunkresWOGEDFl(minGED_withBetterScore, GUIPatterns,
 				// distinctCandidatePatterns.get(patternIndex.get(i)));
@@ -2061,7 +2061,7 @@ private void readFCT()  {
 			}
 			 lcov = lcov / Updated_datagraphs.size();
 			score = scov * lcov * minGED / cognitiveCost;
-			System.out.println("lcov:" + lcov+ ",scov: " + scov+", minGED:"+ minGED +",cognitiveCost:" + cognitiveCost + ",size:"+ size+",density:"+density );
+		//	System.out.println("lcov:" + lcov+ ",scov: " + scov+", minGED:"+ minGED +",cognitiveCost:" + cognitiveCost + ",size:"+ size+",density:"+density );
 			// score=clusterWt+minGED-cognitiveCost;
 			if (score > maxScore)
 				maxScore = score;
@@ -2090,13 +2090,13 @@ private void readFCT()  {
 		// candidatePatterns_score="+candidatePatterns_score.get(i));
 	}
 	public void computeScore() {
-		System.out.println("Starting to run compute score  " );
+		//System.out.println("Starting to run compute score  " );
 		double maxScore = 0f;
 		double minGED_withBetterScore = 0f;
-		for (int i = 0; i < patternIndex.size(); i++) {
-			System.out.print(patternIndex.get(i)+",");
-		}
-		System.out.println();
+		//for (int i = 0; i < patternIndex.size(); i++) {
+		//	System.out.print(patternIndex.get(i)+",");
+		//}
+		//System.out.println();
 		 
 		ArrayList<Double>  SCOVList = new  ArrayList<Double> ();
 		ArrayList<Double>  GEDList   = new  ArrayList<Double> ();
@@ -2124,12 +2124,12 @@ private void readFCT()  {
 				
 			    //	if (maxScore != 0f)   minGED_withBetterScore = maxScore * cognitiveCost / clusterWt;
 				// minGED_withBetterScore=maxScore+cognitiveCost-clusterWt;
-				System.out.println("compare GED_l of i = " + i +" : ");
+			//	System.out.println("compare GED_l of i = " + i +" : ");
 				
 				//minGED = computeGEDMunkres(minGED_withBetterScore, GUIPatterns, distinctCandidatePatterns.get(patternIndex.get(i)));
 				
 				minGED =  computeGEDMunkresWithLowerBoundGED2(minGED_withBetterScore, GUIPatterns, distinctCandidatePatterns.get(patternIndex.get(i)));
-				System.out.println();
+		//		System.out.println();
 
 				 //minGED=computeGEDMunkresWOGEDFl(minGED_withBetterScore, GUIPatterns, distinctCandidatePatterns.get(patternIndex.get(i)));
 				// System.out.println("&&&&&&&&&&&&&&& minGED="+minGED);
@@ -2159,7 +2159,7 @@ private void readFCT()  {
 			}
 			 lcov = lcov / Updated_datagraphs.size();
 			score = scov * lcov * minGED / cognitiveCost;
-			System.out.println("lcov:" + lcov+ ",scov: " + scov+", minGED:"+ minGED +",cognitiveCost:" + cognitiveCost + ",size:"+ size+",density:"+density );
+			//System.out.println("lcov:" + lcov+ ",scov: " + scov+", minGED:"+ minGED +",cognitiveCost:" + cognitiveCost + ",size:"+ size+",density:"+density );
 			// score=clusterWt+minGED-cognitiveCost;
 			if (score > maxScore)
 				maxScore = score;
