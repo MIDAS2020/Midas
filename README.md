@@ -30,7 +30,7 @@ Boost Graph Library (https://www.boost.org/doc/libs/1_74_0/libs/graph/doc/)
 
 # Example to run the codes
 
-There is an example to run the codes. Suppose the original database contains 25000 graphs in AIDS antiviral dataset, if 5000 graphs are added into the database, ClusterMaintenance should be performed to maintain the  clusters generated from  the original database  and Midas is then to update original patterns based on the updated clusters. 
+There is an example to run the codes. Suppose the original database contains 25000 graphs in AIDS antiviral dataset, if 15000 graphs are added into the database, ClusterMaintenance should be performed to maintain the  clusters generated from  the original database  and Midas is then to update original patterns based on the updated clusters. 
 
 1. Run ClusterMaintenance: 
 
@@ -38,9 +38,9 @@ Step 1:  Import ClusterMaintenance project into Visual Studio workspace.
 
 Step 2: Download Boost Graph Library (BGL) from https://www.boost.org/doc/libs/1_74_0/libs/graph/doc/ and compile BGL. Then configure it for Visual Studio (see https://www.youtube.com/watch?v=CH_YZ2bePPM ).
 
-Step 3:  Open SmallGraphClustering.h, set  databasefilename = "AIDS40k",  initialsizeofgraph = 25000, addedsizeofgraph = 5000, initialclustername = "initialcluster.txt" and  updateclustername = "updatecluster.txt".   By doing this,  the input file is "AIDS40k".   The output file are  "initialcluster.txt"  and "updatecluster.txt" that record clusters for original database and updated database. 
+Step 3:  Open SmallGraphClustering.h, set  databasefilename = "AIDS40k",  initialsizeofgraph = 25000, addedsizeofgraph = 15000,  and  updateclustername = "updatecluster25K+15K.txt".   By doing this,  the input file is "AIDS40k" and the output file is  "updatecluster25K+15K.txt" that record clusters for the updated database. 
 
-Step 4:  Open the main class MidasMain.cpp, run it with Release Mode to obtain the output "initialcluster.txt" and "updatecluster.txt". 
+Step 4:  Open the main class MidasMain.cpp, run it with Release Mode to obtain the output "updatecluster25K+15K.txt". 
 
 2. Run Midas:
 
