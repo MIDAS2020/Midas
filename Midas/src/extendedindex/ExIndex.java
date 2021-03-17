@@ -418,12 +418,12 @@ public class ExIndex {
 				Float innerSupport = count / numGraph;
 				allEdgeInGraphDatabase_aveInnerSupport.add(innerSupport);
 			}
-			System.out.println("allVertexInGraphDatabase_label:" + allVertexInGraphDatabase_label.toString());
-			System.out.println(
-					"allVertexInGraphDatabase_aveInnerSupport:" + allVertexInGraphDatabase_aveInnerSupport.toString());
-			System.out.println("allEdgeLabel: " + allEdgeInGraphDatabase_label.toString());
-			System.out.println(
-					"allEdgeInGraphDatabase_aveInnerSupport:" + allVertexInGraphDatabase_aveInnerSupport.toString());
+			//System.out.println("allVertexInGraphDatabase_label:" + allVertexInGraphDatabase_label.toString());
+			//System.out.println(
+			//		"allVertexInGraphDatabase_aveInnerSupport:" + allVertexInGraphDatabase_aveInnerSupport.toString());
+			//System.out.println("allEdgeLabel: " + allEdgeInGraphDatabase_label.toString());
+			//System.out.println(
+			//		"allEdgeInGraphDatabase_aveInnerSupport:" + allVertexInGraphDatabase_aveInnerSupport.toString());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -620,12 +620,12 @@ public class ExIndex {
 				Float innerSupport = count / numGraph;
 				allEdgeInGraphDatabase_aveInnerSupport.add(innerSupport);
 			}
-			System.out.println("allVertexInGraphDatabase_label:" + allVertexInGraphDatabase_label.toString());
-			System.out.println(
-					"allVertexInGraphDatabase_aveInnerSupport:" + allVertexInGraphDatabase_aveInnerSupport.toString());
-			System.out.println("allEdgeLabel: " + allEdgeInGraphDatabase_label.toString());
-			System.out.println(
-					"allEdgeInGraphDatabase_aveInnerSupport:" + allVertexInGraphDatabase_aveInnerSupport.toString());
+			//System.out.println("allVertexInGraphDatabase_label:" + allVertexInGraphDatabase_label.toString());
+			//System.out.println(
+			//		"allVertexInGraphDatabase_aveInnerSupport:" + allVertexInGraphDatabase_aveInnerSupport.toString());
+			//System.out.println("allEdgeLabel: " + allEdgeInGraphDatabase_label.toString());
+			//System.out.println(
+			//		"allEdgeInGraphDatabase_aveInnerSupport:" + allVertexInGraphDatabase_aveInnerSupport.toString());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1603,7 +1603,11 @@ public class ExIndex {
 							eNum = 0;
 							String[] str = strLine.split("\\s");
 							int nodenum = Integer.parseInt(str[3]);
-							if (nodenum > 1) {
+							//if(nodenum <= 1) System.out.println(graphid + "has no more than one node.");
+							//if (nodenum > 1) {
+						   //// Modified by Kai
+							if (nodenum >= 1) {
+								//if(nodenum == 1) System.out.println(graphid + "has only one node.");
 								tmpgraph = new Graph();
 								tmpgraph.setGraphid(graphid);
 								tmpgraph.setVertexNum(nodenum);
