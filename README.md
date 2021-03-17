@@ -46,8 +46,8 @@ Step 4:  Open the main class MidasMain.cpp, run it with Release Mode to obtain t
 
 Step 1:  Import Midas project into Eclipse workspace.  
 
-Step 2:  Place existing pattern set "GUIPatterns.txt" and updated cluster file into "patterns/GUIPatterns.txt", and place it into the folder
+Step 2:  Place existing pattern set "GUIPatterns.txt" and updated cluster file "updatecluster25K+15K.txt" into "patterns/GUIPatterns.txt" and "Clusters/updatecluster25K+15K.txt".
 
 Step 3:  Open the  class src/main/MIDASMain.java,  for function  RunMidas(), set setDataBaseName("AIDS40k"), 
-		setDbName("AIDS"),  setInitialPatternName("patterns/GUIPatterns.txt"),  and setUpdateClusterName("Clusters/updatecluster25K+15K.txt") , run this class to obtain the updated pattern set "patterns/thumbnails". 
+		setDbName("AIDS"),  setInitialPatternName("patterns/GUIPatterns.txt"),  and setUpdateClusterName("Clusters/updatecluster25K+15K.txt") , run this class to obtain the updated pattern set "patterns/thumbnails/GUIPatterns.txt". 
     
