@@ -163,7 +163,7 @@ static int initialsizeofgraph = 25000;
 static int initialsizeofsampledgraph = initialsizeofgraph;
 
 //static int addedsizeofgraph = 6375;
-static int addedsizeofgraph = 5000;
+static int addedsizeofgraph = 15000;
 //static int addedsizeofgraph = 0;
 static int addedsizeofsampledgraph = addedsizeofgraph;
 
@@ -172,7 +172,7 @@ static int removedsizeofsampledgraph = removedsizeofgraph;
 
 static string initialclustername = "initialcluster.txt";
 
-static string updateclustername = "updatecluster.txt";
+static string updateclustername = "updatecluster25K+15K.txt";
 
 //static string addedfinalclustername = "addedfinalcluster.txt";
 //static string removedfinalclustername = "removedfinalcluster.txt";
